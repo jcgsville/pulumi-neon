@@ -29,7 +29,7 @@ import (
 
 	// Replace this provider with the provider you are bridging.
 	// TODO: I think this is the right path, but I'm not sure
-	neon "github.com/kislerdm/terraform-provider-neon/internal/provider"
+	neon "github.com/jcgsville/terraform-provider-neon/provider"
 
 	"github.com/jcgsville/pulumi-neon/provider/pkg/version"
 )
@@ -59,7 +59,7 @@ func Provider() tfbridge.ProviderInfo {
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
 		// Instantiate the Terraform provider
-		P:    shimv2.NewProvider(neon.New(version.Version)()),
+		P:    shimv2.NewProvider(neon.New(version.Version)),
 		Name: "neon",
 		// DisplayName is a way to be able to change the casing of the provider
 		// name when being displayed on the Pulumi registry
